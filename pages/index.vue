@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div>
-      <OrderTab />
-      <FilterTab />
-      <div id="app" align="center" class="row">
-        <Card v-for="item in data" :key="item.id" :info="item" />
-      </div>
+    <OrderTab />
+    <FilterTab />
+    <div v-for="(row, index) in data" :key="index" class="grid-content">
+      <!-- <Card  /> -->
+      <Card v-for="item in row" :key="item.id" :info="item" />
+      <br />
     </div>
   </div>
 </template>
@@ -25,7 +25,9 @@ export default {
       )
       .then((response) => {
         if (response.data.status) {
-          this.data = response.data.data;
+          for (let i = 0; i < response.data.data.length; i += 4) {
+            this.data.push(response.data.data.slice(i, i + 4));
+          }
         }
       });
   },
@@ -34,48 +36,33 @@ export default {
 
 <style>
 .container {
+  width: 1336px;
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.row {
-  -webkit-tap-highlight-color: transparent;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  font-size: 1rem;
+.grid-content {
+  --dropdown-bg-opacity: 1;
+  --home-grid-padding-H: 32px;
+  --home-grid-padding-H-rd: 16px;
+  --home-grid-gap: 29px;
+  --home-grid-gap-rt: 19px;
+  font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
   font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #2b2b2b;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  text-size-adjust: none;
+  display: grid;
+  grid-auto-flow: column;
+  margin: 0 auto;
+  grid-gap: var(--home-grid-gap);
+  gap: var(--home-grid-gap);
+  margin-bottom: 24px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  grid-template-columns: [col-start] min-content [col-middle] max-content [col-end];
 }
-
 </style>
