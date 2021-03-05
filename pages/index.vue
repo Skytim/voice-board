@@ -4,7 +4,7 @@
       <OrderTab />
       <FilterTab />
     </div>
-    <div v-for="(row, index) in data" :key="index" class="grid-content">
+    <div v-for="(row, index) in videoList" :key="index" class="grid-content">
       <!-- <Card  /> -->
       <Card v-for="item in row" :key="item.id" :info="item" />
       <br />
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data: function () {
     return {
@@ -32,6 +33,13 @@ export default {
           }
         }
       });
+    this.$store.dispatch("video/getVideos");
+  },
+  computed: {
+    ...mapGetters({
+      // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
+      videoList: "video/videoList",
+    }),
   },
 };
 </script>
