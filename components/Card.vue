@@ -29,6 +29,11 @@ export default {
   props: {
     info: Object,
   },
+  data: function () {
+    return {
+      data: [],
+    };
+  },
   name: "Card",
 };
 </script>

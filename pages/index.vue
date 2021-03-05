@@ -37,7 +37,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
       videoList: "video/videoList",
     }),
   },
