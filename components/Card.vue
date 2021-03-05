@@ -18,7 +18,7 @@
         >
           {{ caption }}
         </span>
-        <span> {{ info.level }} </span>
+        <span class="level"> {{ info.level | level }} </span>
       </p>
     </div>
   </a>
@@ -66,7 +66,7 @@ img {
   overflow: hidden;
   text-decoration: none;
   flex: 0 0 auto;
-  --card-width: 302px;
+  --card-width: 240px;
 }
 .video-info {
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
@@ -208,7 +208,7 @@ h6 {
   --dropdown-bg-opacity: 1;
   --home-grid-padding-H: 32px;
   --home-grid-padding-H-rd: 16px;
-  --home-grid-gap: 29px;
+  --home-grid-gap: 70px;
   --home-grid-gap-rt: 19px;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
@@ -228,7 +228,6 @@ h6 {
   align-items: center;
   margin: 16px 0 0;
   padding: 16px 0 0;
-  border-top: 1px solid #2b2b2b;
 }
 .lang {
   --tag-color: #fff;
@@ -237,21 +236,10 @@ h6 {
   --button-cursor: pointer;
   --button-border-width: 0;
   --button-border-color: transparent;
-  --checkbox-color: #7e3aaf;
-  --checkbox-text-color: #2b2b2b;
-  --checkbox-border-color: #b4b4b4;
-  --checkbox-hover-color: #7e3aaf;
-  --checkbox-hover-text-color: #2b2b2b;
-  --checkbox-checked-color: #7e3aaf;
-  --checkbox-checked-text-color: #2b2b2b;
-  --checkbox-checked-border-color: #7e3aaf;
-  --checkbox-disabled-bg: #f3f3f3;
-  --checkbox-disabled-color: #b4b4b4;
-  --checkbox-disabled-border-color: #e3e3e3;
+
   --dropdown-bg-opacity: 1;
   --home-grid-padding-H: 32px;
   --home-grid-padding-H-rd: 16px;
-  --home-grid-gap: 29px;
   --home-grid-gap-rt: 19px;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
@@ -281,5 +269,64 @@ h6 {
   cursor: pointer;
   pointer-events: auto;
   background-color: rgb(33, 189, 12);
+}
+.level {
+  --container-w: 1320px;
+  --header-h: 72px;
+  --header-h-rt: 56px;
+  --header-nav-h: 72px;
+  --header-nav-h-rt: 56px;
+  --header-gap: 40px;
+  --header-gap-rt: 16px;
+  --header-menu-padding-V: 10px;
+  --tag-color: #fff;
+  --button-color: #fff;
+  --button-cursor: pointer;
+  --button-border-width: 0;
+  --button-border-color: transparent;
+  --checkbox-color: #7e3aaf;
+  --checkbox-text-color: #2b2b2b;
+  --checkbox-border-color: #b4b4b4;
+  --checkbox-hover-color: #7e3aaf;
+  --checkbox-hover-text-color: #2b2b2b;
+  --checkbox-checked-color: #7e3aaf;
+  --checkbox-checked-text-color: #2b2b2b;
+  --checkbox-checked-border-color: #7e3aaf;
+  --checkbox-disabled-bg: #f3f3f3;
+  --checkbox-disabled-color: #b4b4b4;
+  --checkbox-disabled-border-color: #e3e3e3;
+  --dropdown-bg-opacity: 1;
+  --home-grid-padding-H: 32px;
+  --home-grid-padding-H-rd: 16px;
+  --home-grid-gap: 16px;
+  --home-grid-gap-rt: 8px;
+  font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  --thumbnail-height: 168px;
+  --card-width: 100%;
+  box-sizing: border-box;
+  text-size-adjust: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--tag-color);
+  border-radius: 2px;
+  padding: 0 8px;
+  height: 20px;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.15s ease-out;
+  z-index: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  --tag-bg-color: #ffb900;
+  background-color: #000;
 }
 </style>

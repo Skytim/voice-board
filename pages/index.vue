@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <OrderTab />
-    <FilterTab />
+    <div class="grid-content">
+      <OrderTab />
+      <FilterTab />
+    </div>
     <div v-for="(row, index) in data" :key="index" class="grid-content">
       <!-- <Card  /> -->
       <Card v-for="item in row" :key="item.id" :info="item" />
@@ -40,11 +42,6 @@ export default {
   margin: 0 auto;
 }
 .grid-content {
-  --dropdown-bg-opacity: 1;
-  --home-grid-padding-H: 32px;
-  --home-grid-padding-H-rd: 16px;
-  --home-grid-gap: 29px;
-  --home-grid-gap-rt: 19px;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
   font-weight: 400;
@@ -61,8 +58,5 @@ export default {
   grid-gap: var(--home-grid-gap);
   gap: var(--home-grid-gap);
   margin-bottom: 24px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  grid-template-columns: [col-start] min-content [col-middle] max-content [col-end];
 }
 </style>
