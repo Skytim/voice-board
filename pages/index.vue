@@ -22,17 +22,6 @@ export default {
     };
   },
   mounted: function () {
-    this.$axios
-      .get(
-        "https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz"
-      )
-      .then((response) => {
-        if (response.data.status) {
-          for (let i = 0; i < response.data.data.length; i += 4) {
-            this.data.push(response.data.data.slice(i, i + 4));
-          }
-        }
-      });
     this.$store.dispatch("video/getVideos");
   },
   computed: {

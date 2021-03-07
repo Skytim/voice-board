@@ -7,5 +7,11 @@ export const LevelEnum = {
 export const OrderTypeEnum = {
   Publish: 1,
   Views: 2,
-  CollectCount: 3,
+  CollectCount: 3
+};
+export const LengthFilterEnum = {
+  None: 1,
+  UnderFour: 2,
+  FromFiveToTen: 3,
+  AboveTen: 4
 };

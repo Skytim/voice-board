@@ -1,5 +1,6 @@
 <template>
   <ul class="nav nav-pills">
+  <span class="navbar-brand" href="#">排序</span>
     <li
       class="nav-item"
       v-for="(value, order) in OrderTypeEnum"

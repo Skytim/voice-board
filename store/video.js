@@ -1,23 +1,35 @@
-import { OrderTypeEnum } from "../shared/enums";
+import { OrderTypeEnum, LengthFilterEnum } from "../shared/enums";
 export const state = () => ({
   orderType: OrderTypeEnum.Publish,
+  lengthFilter: LengthFilterEnum.None,
   videos: []
 });
 
 export const getters = {
   videoList(state) {
     let result = [];
-    let tempVideo = [...state.videos].sort(function(a, b) {
-      if (state.orderType === OrderTypeEnum.Publish) {
-        return b.publish - a.publish;
-      }
-      if (state.orderType === OrderTypeEnum.Views) {
-        return b.views - a.views;
-      }
-      if (state.orderType === OrderTypeEnum.CollectCount) {
-        return b.collectCount - a.collectCount;
-      }
-    });
+    let tempVideo = [...state.videos]
+      .sort(function(a, b) {
+        if (state.orderType === OrderTypeEnum.Views) {
+          return b.views - a.views;
+        } else if (state.orderType === OrderTypeEnum.CollectCount) {
+          return b.collectCount - a.collectCount;
+        } else {
+          return b.publish - a.publish;
+        }
+      })
+      .filter(video => {
+        let duration = video.duration;
+        if (state.lengthFilter === LengthFilterEnum.UnderFour) {
+          return duration < 300;
+        } else if (state.lengthFilter === LengthFilterEnum.AboveTen) {
+          return duration >= 600;
+        } else if (state.lengthFilter === LengthFilterEnum.FromFiveToTen) {
+          return duration < 600 && duration >= 300;
+        } else {
+          return video;
+        }
+      });
     for (let i = 0; i < tempVideo.length; i += 4) {
       result.push(tempVideo.slice(i, i + 4));
     }
@@ -25,6 +37,9 @@ export const getters = {
   },
   orderType(state) {
     return state.orderType;
+  },
+  lengthFilter(state) {
+    return state.lengthFilter;
   }
 };
 export const actions = {
@@ -46,5 +61,8 @@ export const mutations = {
   },
   changeOrder(state, orderType) {
     state.orderType = orderType;
+  },
+  changeLengthFilter(state, lengthFilter) {
+    state.lengthFilter = lengthFilter;
   }
 };
