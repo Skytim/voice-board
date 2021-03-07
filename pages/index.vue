@@ -9,18 +9,24 @@
       <br />
     </div>
     <div v-if="videoList.length === 0" class="no-result">
-      <h1>沒有篩選結果</h1>
+      <h1 v-if="status === StatusEnum.Init">載入中</h1>
+      <h1 v-if="status === StatusEnum.Finished">沒有篩選結果</h1>
+      <h1 v-if="status === StatusEnum.NetworkError">
+        網路連線異常，請檢察網路
+      </h1>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { StatusEnum } from "../shared/enums";
 export default {
   data: function () {
     return {
       data: [],
       order: 1,
+      StatusEnum: StatusEnum,
     };
   },
   mounted: function () {
@@ -29,6 +35,7 @@ export default {
   computed: {
     ...mapGetters({
       videoList: "video/videoList",
+      status: "video/getStatus",
     }),
   },
 };
@@ -58,8 +65,8 @@ export default {
   margin-bottom: 24px;
 }
 .no-result {
-  position: absolute;
-  top: 47%;
-  left: 43%;
+  text-align: center;
+  height: 768px;
+  line-height: 768px;
 }
 </style>

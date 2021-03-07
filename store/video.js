@@ -1,8 +1,9 @@
-import { OrderTypeEnum, LengthFilterEnum } from "../shared/enums";
+import { OrderTypeEnum, LengthFilterEnum, StatusEnum } from "../shared/enums";
 export const state = () => ({
   orderType: OrderTypeEnum.Publish,
   lengthFilter: LengthFilterEnum.None,
-  videos: []
+  videos: [],
+  status: StatusEnum.Init
 });
 
 export const getters = {
@@ -40,6 +41,9 @@ export const getters = {
   },
   lengthFilter(state) {
     return state.lengthFilter;
+  },
+  getStatus(state) {
+    return state.status;
   }
 };
 export const actions = {
@@ -51,12 +55,18 @@ export const actions = {
       .then(response => {
         if (response.data.status) {
           context.commit("setVideos", response.data.data);
+        } else {
+          context.commit("netWorkIssue");
         }
+      })
+      .catch(error => {
+        context.commit("netWorkIssue");
       });
   }
 };
 export const mutations = {
   setVideos(state, videos) {
+    state.status = StatusEnum.Finished;
     state.videos = videos;
   },
   changeOrder(state, orderType) {
@@ -64,5 +74,8 @@ export const mutations = {
   },
   changeLengthFilter(state, lengthFilter) {
     state.lengthFilter = lengthFilter;
+  },
+  netWorkIssue(state) {
+    state.status = StatusEnum.NetworkError;
   }
 };

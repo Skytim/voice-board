@@ -15,3 +15,8 @@ export const LengthFilterEnum = {
   FromFiveToTen: 3,
   AboveTen: 4
 };
+export const StatusEnum = {
+  Init: 1,
+  Finished: 2,
+  NetworkError: 3
+};
