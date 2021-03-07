@@ -3,7 +3,7 @@
     <span class="navbar-brand" href="#">長度</span>
     <li
       class="nav-item"
-      v-for="(value, length) in LengthFilterEnum"
+      v-for="(value) in LengthFilterEnum"
       :key="value"
       v-on:click="changeLengthFilter(value)"
     >
@@ -13,7 +13,7 @@
         tabindex="-1"
         aria-disabled="true"
         v-bind:class="{ active: value === lengthFilter }"
-        >{{ length }}</a
+        >{{ value | length }}</a
       >
     </li>
   </ul>

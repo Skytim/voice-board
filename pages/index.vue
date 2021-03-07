@@ -5,9 +5,11 @@
       <FilterTab />
     </div>
     <div v-for="(row, index) in videoList" :key="index" class="grid-content">
-      <!-- <Card  /> -->
       <Card v-for="item in row" :key="item.id" :info="item" />
       <br />
+    </div>
+    <div v-if="videoList.length === 0" class="no-result">
+      <h1>沒有篩選結果</h1>
     </div>
   </div>
 </template>
@@ -54,5 +56,10 @@ export default {
   grid-gap: var(--home-grid-gap);
   gap: var(--home-grid-gap);
   margin-bottom: 24px;
+}
+.no-result {
+  position: absolute;
+  top: 47%;
+  left: 43%;
 }
 </style>

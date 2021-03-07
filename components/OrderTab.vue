@@ -1,9 +1,9 @@
 <template>
   <ul class="nav nav-pills">
-  <span class="navbar-brand" href="#">排序</span>
+    <span class="navbar-brand" href="#">排序</span>
     <li
       class="nav-item"
-      v-for="(value, order) in OrderTypeEnum"
+      v-for="(value) in OrderTypeEnum"
       :key="value"
       v-on:click="changeOrder(value)"
     >
@@ -13,7 +13,7 @@
         tabindex="-1"
         aria-disabled="true"
         v-bind:class="{ active: value === orderType }"
-        >{{ order }}</a
+        >{{ value | order }}</a
       >
     </li>
   </ul>
