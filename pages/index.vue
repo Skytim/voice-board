@@ -48,14 +48,6 @@ export default {
   margin: 0 auto;
 }
 .grid-content {
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #2b2b2b;
-  box-sizing: border-box;
-  text-size-adjust: none;
   display: grid;
   grid-auto-flow: column;
   margin: 0 auto;
