@@ -4,6 +4,7 @@
       <OrderTab />
       <FilterTab />
     </div>
+    <hr />
     <div v-for="(row, index) in videoList" :key="index" class="grid-content">
       <Card v-for="item in row" :key="item.id" :info="item" />
       <br />
@@ -47,8 +48,6 @@ export default {
   margin: 0 auto;
 }
 .grid-content {
-  font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -62,11 +61,13 @@ export default {
   margin: 0 auto;
   grid-gap: var(--home-grid-gap);
   gap: var(--home-grid-gap);
-  margin-bottom: 24px;
 }
 .no-result {
   text-align: center;
-  height: 768px;
-  line-height: 768px;
+  height: 700px;
+  line-height: 700px;
+}
+hr {
+  margin-bottom: 31px;
 }
 </style>

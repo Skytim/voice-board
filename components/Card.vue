@@ -10,7 +10,10 @@
       <h6>{{ info.title }}</h6>
 
       <p class="tail">
-        <span class="views">{{ info.views }}</span>
+        <span class="views">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#787878" width="19px" height="19px"><path d="M0 0h24v24H0z" fill="none" opacity=".1"/><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+          {{ info.views }}</span
+        >
         <span
           class="lang"
           v-for="(caption, index) in info.captions"
@@ -44,7 +47,6 @@ img {
 }
 
 .video-card {
-  padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
@@ -181,35 +183,6 @@ h6 {
   flex: 1;
 }
 .tail {
-  --header-h: 72px;
-  --header-h-rt: 56px;
-  --header-nav-h: 72px;
-  --header-nav-h-rt: 56px;
-  --header-gap: 40px;
-  --header-gap-rt: 16px;
-  --header-menu-padding-V: 43px;
-  --tag-color: #fff;
-  --tag-bg-color: #b4b4b4;
-  --button-color: #fff;
-  --button-cursor: pointer;
-  --button-border-width: 0;
-  --button-border-color: transparent;
-  --checkbox-color: #7e3aaf;
-  --checkbox-text-color: #2b2b2b;
-  --checkbox-border-color: #b4b4b4;
-  --checkbox-hover-color: #7e3aaf;
-  --checkbox-hover-text-color: #2b2b2b;
-  --checkbox-checked-color: #7e3aaf;
-  --checkbox-checked-text-color: #2b2b2b;
-  --checkbox-checked-border-color: #7e3aaf;
-  --checkbox-disabled-bg: #f3f3f3;
-  --checkbox-disabled-color: #b4b4b4;
-  --checkbox-disabled-border-color: #e3e3e3;
-  --dropdown-bg-opacity: 1;
-  --home-grid-padding-H: 32px;
-  --home-grid-padding-H-rd: 16px;
-  --home-grid-gap: 70px;
-  --home-grid-gap-rt: 19px;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
   font-weight: 400;
@@ -271,35 +244,7 @@ h6 {
   background-color: rgb(33, 189, 12);
 }
 .level {
-  --container-w: 1320px;
-  --header-h: 72px;
-  --header-h-rt: 56px;
-  --header-nav-h: 72px;
-  --header-nav-h-rt: 56px;
-  --header-gap: 40px;
-  --header-gap-rt: 16px;
-  --header-menu-padding-V: 10px;
   --tag-color: #fff;
-  --button-color: #fff;
-  --button-cursor: pointer;
-  --button-border-width: 0;
-  --button-border-color: transparent;
-  --checkbox-color: #7e3aaf;
-  --checkbox-text-color: #2b2b2b;
-  --checkbox-border-color: #b4b4b4;
-  --checkbox-hover-color: #7e3aaf;
-  --checkbox-hover-text-color: #2b2b2b;
-  --checkbox-checked-color: #7e3aaf;
-  --checkbox-checked-text-color: #2b2b2b;
-  --checkbox-checked-border-color: #7e3aaf;
-  --checkbox-disabled-bg: #f3f3f3;
-  --checkbox-disabled-color: #b4b4b4;
-  --checkbox-disabled-border-color: #e3e3e3;
-  --dropdown-bg-opacity: 1;
-  --home-grid-padding-H: 32px;
-  --home-grid-padding-H-rd: 16px;
-  --home-grid-gap: 16px;
-  --home-grid-gap-rt: 8px;
   font-family: "Noto Sans TC", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Microsoft JhengHei, Arial, sans-serif;
   font-style: normal;

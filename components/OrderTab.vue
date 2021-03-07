@@ -1,9 +1,8 @@
 <template>
   <ul class="nav nav-pills">
-    <span class="navbar-brand" href="#">排序</span>
+    <span class="tab-title" href="#">排序</span>
     <li
-      class="nav-item"
-      v-for="(value) in OrderTypeEnum"
+      v-for="value in OrderTypeEnum"
       :key="value"
       v-on:click="changeOrder(value)"
     >

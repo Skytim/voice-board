@@ -1,9 +1,8 @@
 <template>
   <ul class="nav nav-pills">
-    <span class="navbar-brand" href="#">長度</span>
+    <span class="tab-title" href="#">長度</span>
     <li
-      class="nav-item"
-      v-for="(value) in LengthFilterEnum"
+      v-for="value in LengthFilterEnum"
       :key="value"
       v-on:click="changeLengthFilter(value)"
     >
