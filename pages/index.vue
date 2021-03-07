@@ -50,9 +50,7 @@ export default {
 .grid-content {
   display: grid;
   grid-auto-flow: column;
-  margin: 0 auto;
-  grid-gap: var(--home-grid-gap);
-  gap: var(--home-grid-gap);
+
 }
 .no-result {
   text-align: center;
