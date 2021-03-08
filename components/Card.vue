@@ -4,7 +4,7 @@
       class="video-cover"
       v-bind:style="{ backgroundImage: 'url(' + info.thumbnail + ')' }"
     >
-      <span class="duration">{{ info.duration|secondsTohhmmss }}</span>
+      <span class="duration">{{ info.duration | secondsTohhmmss }}</span>
     </div>
     <div class="video-info">
       <span class="video-title">{{ info.title }}</span>
@@ -23,22 +23,24 @@
               d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"
             />
           </svg>
-          {{ info.views | abbreviateNumber}}</span
+          {{ info.views | abbreviateNumber }}</span
         >
         <span
           class="tag lang"
           v-for="(caption, index) in info.captions"
           :key="index"
+          :class="caption"
         >
-          {{ caption }}
+          {{ caption | lang }}
         </span>
-        <span class="tag level"> {{ info.level | level }} </span>
+        <span class="tag" :class="level"> {{ info.level | level }} </span>
       </p>
     </div>
   </div>
 </template>
 
 <script>
+import { LevelEnum } from "../shared/enums";
 export default {
   props: {
     info: Object,
@@ -47,6 +49,13 @@ export default {
     return {
       data: [],
     };
+  },
+  computed: {
+    level() {
+      return Object.keys(LevelEnum).find(
+        (key) => LevelEnum[key] === this.info.level
+      );
+    },
   },
   name: "Card",
 };
@@ -77,19 +86,11 @@ img {
   height: 40px;
 }
 .video-cover {
-  --thumbnail-height: 168px;
-  box-sizing: border-box;
-  text-size-adjust: none;
-  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  flex-wrap: wrap;
   padding: 7px 10px;
-  z-index: 1;
-  width: 100%;
-  height: var(--thumbnail-height);
-  overflow: hidden;
+  height: 168px;
   background: #b4b4b4 no-repeat 50% / cover;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -97,57 +98,33 @@ img {
 .duration {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   position: relative;
   font-size: 12px;
-  font-weight: 500;
-  line-height: 1;
   color: white;
   border-radius: 2px;
   padding: 0 8px;
   height: 20px;
-  white-space: nowrap;
-  user-select: none;
-  pointer-events: none;
-  transition: color 0.15s ease-out;
-  z-index: 1;
   background-color: #000;
 }
 .views {
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  cursor: pointer;
-  box-sizing: border-box;
-  text-size-adjust: none;
   display: inline-flex;
   align-items: center;
-  margin: 0 10px 0 0;
   color: #787878;
   font-size: 12px;
   line-height: 1;
   flex: 1;
 }
 .tail {
-  box-sizing: border-box;
-  text-size-adjust: none;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 16px 0 0;
-  padding: 16px 0 0;
 }
 .lang {
   margin-right: 10px;
-  background-color: rgb(33, 189, 12);
 }
-.level {
-  background-color: #000;
-}
+
 .tag {
   height: 21px;
-  --tag-color: #fff;
   font-family: PingFangTC-Medium;
   color: white;
   border-radius: 2px;
@@ -157,5 +134,29 @@ img {
   justify-content: center;
   position: relative;
   padding: 0 8px;
+}
+.cht {
+  background-color: #4283e4;
+}
+.en {
+  background-color: #b3e442;
+}
+.ja {
+  background-color: #b642e4;
+}
+.vi {
+  background-color: #42e4a0;
+}
+.Junior {
+  background-color: #268969;
+}
+.Intermediate {
+  background-color: #ffb900;
+}
+.MidtoHigh {
+  background-color: #ed7d4f;
+}
+.High {
+  background: #ed4f55;
 }
 </style>

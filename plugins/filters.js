@@ -76,3 +76,15 @@ Vue.filter("secondsTohhmmss", function(value) {
   const sDisplay = s > 0 ? (s < 10 ? "0" + s : s) : "";
   return hDisplay + mDisplay + sDisplay;
 });
+
+Vue.filter("lang", function(value) {
+  if (value === "ja") {
+    return "日文";
+  } else if (value === "cht") {
+    return "中文";
+  } else if (value === "vi") {
+    return "越南文";
+  } else {
+    return "英文";
+  }
+});
