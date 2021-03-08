@@ -1,6 +1,6 @@
 <template>
   <ul class="nav nav-pills">
-    <span class="tab-title" href="#">排序</span>
+    <span class="tab-title">排序</span>
     <li
       v-for="value in OrderTypeEnum"
       :key="value"

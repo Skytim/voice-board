@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-Vue.filter("level", function(value) {
+export const level = function(value) {
   if (value === 1) {
     return "初級";
   }
@@ -13,8 +13,9 @@ Vue.filter("level", function(value) {
   if (value === 4) {
     return "高級";
   }
-});
-Vue.filter("order", function(value) {
+};
+Vue.filter("level", level);
+export const orderType = function(value) {
   if (value === 1) {
     return "發佈時間";
   }
@@ -24,7 +25,8 @@ Vue.filter("order", function(value) {
   if (value === 3) {
     return "收藏次數";
   }
-});
+};
+Vue.filter("order", orderType);
 
 Vue.filter("length", function(value) {
   if (value === 1) {
