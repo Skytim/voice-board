@@ -28,7 +28,7 @@ export const orderType = function(value) {
 };
 Vue.filter("order", orderType);
 
-Vue.filter("length", function(value) {
+export const length = function(value) {
   if (value === 1) {
     return "不限";
   }
@@ -41,7 +41,8 @@ Vue.filter("length", function(value) {
   if (value === 4) {
     return "超過 10 分鐘";
   }
-});
+};
+Vue.filter("length", length);
 
 Vue.filter("abbreviateNumber", function(value) {
   let newValue = value;
