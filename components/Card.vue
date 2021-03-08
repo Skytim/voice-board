@@ -94,6 +94,12 @@ img {
   background: #b4b4b4 no-repeat 50% / cover;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  transition: transform 1s ease;
+}
+.video-card:hover .video-cover {
+  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
 }
 .duration {
   display: inline-flex;
