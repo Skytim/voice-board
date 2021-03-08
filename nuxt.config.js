@@ -7,20 +7,38 @@ const routerBase =
         }
       }
     : {};
+const linkBase =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        link: [
+          {
+            rel: "icon",
+            type: "image/x-icon",
+            href: "/voice-board/favicon.png"
+          }
+        ]
+      }
+    : {
+        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
+      };
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ...routerBase,
   head: {
-    title: "voice-board",
+    title: "VoiceBoard",
     htmlAttrs: {
       lang: "en"
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { hid: "description", name: "description", content: "VoiceBoard, Author: Tim Tsai" },
+      { property: "og:title", content: "VoiceBoard" },
+      { property: "og:description", content: "Tim's VoiceBoard for mock" },
+      { property: "og:site_name", content: "VoiceBoard" },
+      { property: "og:locale", content: "zh_TW" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    ...linkBase
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

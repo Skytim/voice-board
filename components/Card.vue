@@ -1,5 +1,5 @@
 <template>
-  <a class="video-card">
+  <div class="video-card">
     <div
       class="video-cover"
       v-bind:style="{ backgroundImage: 'url(' + info.thumbnail + ')' }"
@@ -35,7 +35,7 @@
         <span class="tag level"> {{ info.level | level }} </span>
       </p>
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
