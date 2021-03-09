@@ -43,5 +43,6 @@ jobs:
       - name: Generate static file
         run: npm run generate:gh-pages
       - name: Deploy to ghPages
-        run: npm run generate:gh-pages
-        echo 🤘 deploy gh-pages complete.
+        run: |
+          npm run generate:gh-pages
+          echo 🤘 deploy gh-pages complete
