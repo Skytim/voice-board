@@ -11,7 +11,11 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-
+    env:
+      MY_SECRET   : ${{secrets.commit_secret}}
+      USER_NAME   : Tim Tsai Bot
+      USER_EMAIL  : sky22357168@gmail.com
+      PUBLISH_DIR : ./dist
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -42,5 +46,14 @@ jobs:
         run: npm run generate:gh-pages
       - name: Deploy to ghPages
         run: |
-          npm run deploy
-          echo 🤘 deploy gh-pages complete
+          cd $PUBLISH_DIR
+          git init
+          git config --local user.name $USER_NAME
+          git config --local user.email $USER_EMAIL
+          git status
+          git remote add origin https://$MY_SECRET@github.com/$GITHUB_REPOSITORY.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m $GITHUB_SHA
+          git push origin gh-pages -f
+          echo 🤘 deploy gh-pages complete.
