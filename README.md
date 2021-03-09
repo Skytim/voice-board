@@ -27,9 +27,8 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+# run unit test(jest)
+$ npm run test
 
 # generate static project and deply to ghpage
 Have to commit all code before deploy to gh-page

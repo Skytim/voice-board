@@ -53,6 +53,6 @@ jobs:
           git remote add origin https://$MY_SECRET@github.com/$GITHUB_REPOSITORY.git
           git checkout -b gh-pages
           git add --all
-          git commit -m "deploy to Github pages"
+          git commit -m $GITHUB_SHA
           git push origin gh-pages -f
           echo 🤘 deploy gh-pages complete.
