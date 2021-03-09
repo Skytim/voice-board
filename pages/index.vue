@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="grid-content">
+    <div class="nav">
       <OrderTab />
       <FilterTab />
     </div>
@@ -41,23 +41,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.container {
-  width: 1336px;
-  margin: 0 auto;
-}
-.grid-content {
-  display: grid;
-  grid-auto-flow: column;
-
-}
-.no-result {
-  text-align: center;
-  height: 700px;
-  line-height: 700px;
-}
-hr {
-  margin-bottom: 31px;
-}
-</style>
