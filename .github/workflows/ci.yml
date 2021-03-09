@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     env:
-      MY_SECRET   : ${{secrets.commit_secret}}
+      MY_SECRET   : ${{secrets.COMMIT_SECRET}}
       USER_NAME   : Tim Tsai Bot
       USER_EMAIL  : sky22357168@gmail.com
       PUBLISH_DIR : ./dist
