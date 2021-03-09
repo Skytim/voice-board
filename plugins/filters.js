@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { LevelEnum,OrderTypeEnum } from "../shared/enums";
 
-export const level = function(value) {
+export const levelFilter = function(value) {
   if (value === LevelEnum.Junior) {
     return "初級";
   }
@@ -90,7 +90,7 @@ export const lang = function(value) {
     return "英文";
   }
 };
-Vue.filter("level", level);
+Vue.filter("level", levelFilter);
 Vue.filter("length", length);
 Vue.filter("order", orderType);
 Vue.filter("lang", lang);

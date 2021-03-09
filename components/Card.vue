@@ -33,7 +33,7 @@
         >
           {{ caption | lang }}
         </span>
-        <span class="tag" :class="level"> {{ info.level | level }} </span>
+        <span class="tag level" :class="level"> {{ info.level | level }} </span>
       </p>
     </div>
   </div>
