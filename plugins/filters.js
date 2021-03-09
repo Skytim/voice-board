@@ -1,32 +1,32 @@
 import Vue from "vue";
+import { LevelEnum,OrderTypeEnum } from "../shared/enums";
 
 export const level = function(value) {
-  if (value === 1) {
+  if (value === LevelEnum.Junior) {
     return "初級";
   }
-  if (value === 2) {
+  if (value === LevelEnum.Intermediate) {
     return "中級";
   }
-  if (value === 3) {
+  if (value === LevelEnum.MidtoHigh) {
     return "中高級";
   }
-  if (value === 4) {
+  if (value === LevelEnum.High) {
     return "高級";
   }
 };
-Vue.filter("level", level);
+
 export const orderType = function(value) {
-  if (value === 1) {
+  if (value === OrderTypeEnum.Publish) {
     return "發佈時間";
   }
-  if (value === 2) {
+  if (value === OrderTypeEnum.Views) {
     return "觀看次數";
   }
-  if (value === 3) {
+  if (value === OrderTypeEnum.CollectCount) {
     return "收藏次數";
   }
 };
-Vue.filter("order", orderType);
 
 export const length = function(value) {
   if (value === 1) {
@@ -42,9 +42,8 @@ export const length = function(value) {
     return "超過 10 分鐘";
   }
 };
-Vue.filter("length", length);
 
-Vue.filter("abbreviateNumber", function(value) {
+export const abbreviateNumber = function(value) {
   let newValue = value;
   if (value >= 1000) {
     const suffixes = ["", "k", "m", "b", "t"];
@@ -66,9 +65,9 @@ Vue.filter("abbreviateNumber", function(value) {
     newValue = shortValue + suffixes[suffixNum];
   }
   return newValue;
-});
+};
 
-Vue.filter("secondsTohhmmss", function(value) {
+export const secondsTohhmmss = function(value) {
   let valueNumber = Number(value);
   const h = Math.floor(valueNumber / 3600);
   const m = Math.floor((valueNumber % 3600) / 60);
@@ -78,9 +77,9 @@ Vue.filter("secondsTohhmmss", function(value) {
   const mDisplay = m > 0 ? (m < 10 ? "0" + m : m) + ":" : "";
   const sDisplay = s > 0 ? (s < 10 ? "0" + s : s) : "";
   return hDisplay + mDisplay + sDisplay;
-});
+};
 
-Vue.filter("lang", function(value) {
+export const lang = function(value) {
   if (value === "ja") {
     return "日文";
   } else if (value === "cht") {
@@ -90,4 +89,10 @@ Vue.filter("lang", function(value) {
   } else {
     return "英文";
   }
-});
+};
+Vue.filter("level", level);
+Vue.filter("length", length);
+Vue.filter("order", orderType);
+Vue.filter("lang", lang);
+Vue.filter("secondsTohhmmss", secondsTohhmmss);
+Vue.filter("abbreviateNumber", abbreviateNumber);
