@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  ci:
+  build:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -40,3 +40,8 @@ jobs:
 
       - name: Run tests 🧪
         run: npm run test
+      - name: Generate static file
+        run: npm run generate:gh-pages
+      - name: Deploy to ghPages
+        run: npm run generate:gh-pages
+        echo 🤘 deploy gh-pages complete.
