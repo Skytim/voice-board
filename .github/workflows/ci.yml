@@ -42,5 +42,5 @@ jobs:
         run: npm run generate:gh-pages
       - name: Deploy to ghPages
         run: |
-          npm run generate:gh-pages
+          npm run deploy
           echo 🤘 deploy gh-pages complete
