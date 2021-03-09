@@ -1,7 +1,12 @@
 import { mount } from "@vue/test-utils";
 import Card from "@/components/Card.vue";
 import "@/plugins/filters";
-import { secondsTohhmmss, abbreviateNumber, levelFilter } from "@/plugins/filters";
+import {
+  secondsTohhmmss,
+  abbreviateNumber,
+  levelFilter,
+  lang
+} from "@/plugins/filters";
 describe("Card", () => {
   const infoData = {
     id: 0,
@@ -42,6 +47,16 @@ describe("Card", () => {
   it("Video view is as Same as filter abbreviateNumber", () => {
     const videoView = wrapper.find(".views");
     expect(videoView.text()).toBe(abbreviateNumber(infoData.views));
+  });
+
+  it("Video lang display count", () => {
+    const lang = wrapper.findAll(".lang");
+    expect(lang.length).toBe(infoData.captions.length);
+  });
+
+  it("Video lang is as Same as filter lang", () => {
+    const langCom = wrapper.findAll(".lang").at(0);
+    expect(langCom.text()).toBe(lang(infoData.captions[0]));
   });
 
   it("Video level is as Same as filter level", () => {
