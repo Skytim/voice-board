@@ -40,8 +40,6 @@ jobs:
         run: npm install
       - name: Run Unit tests 🧪
         run: npm run test
-      - name: Run E2E tests 🧪
-        run: npm run e2e
       - name: Generate static file
         run: npm run generate:gh-pages
       - name: Deploy to ghPages
@@ -58,3 +56,6 @@ jobs:
           git commit -m $GITHUB_SHA
           git push origin gh-pages -f
           echo 🤘 deploy gh-pages complete.
+      - name: Run E2E tests 🧪
+        run: |
+          npm run e2e
