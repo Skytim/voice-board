@@ -18,12 +18,12 @@ Fake [VoiceTube]() website develped by Nuxt.js
 - [x] 卡片超出四張或頁面寬度不足以容納四張，請 **自動換行** 至下一行。
 - [x] 滑鼠經過每張卡片時，請將影片縮圖放大 10%，放大過程需漸變。( 影片圖片不可露出黑邊 )
 - [x] 影片標題最多為兩行。
-- []RWD。
+- [ ]RWD。
 
 ## 額外需求
  - [x] 針對影片列表做 SEO 優化。
  - [x] Unit Testing
- - [] End-to-End Testing
+ - [x] End-to-End Testing
 
 ## Build Setup
 
@@ -35,6 +35,11 @@ $ npm install
 $ npm run dev
 
 # run unit test(jest)
+$ npm run test
+
+# run e2e test(jest-puppeteer)
+$ npm run dev
+# open new terminal and serve with hot reload at localhost:3000
 $ npm run test
 
 # generate static project and deply to ghpage
