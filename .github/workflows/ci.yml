@@ -38,8 +38,10 @@ jobs:
 
       - name: Install npm dependencies 👨🏻‍💻
         run: npm install
-      - name: Run tests 🧪
+      - name: Run Unit tests 🧪
         run: npm run test
+      - name: Run E2E tests 🧪
+        run: npm run e2e
       - name: Generate static file
         run: npm run generate:gh-pages
       - name: Deploy to ghPages
