@@ -10,6 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "e2e": "cross-env DEPLOY_ENV=E2E jest ./test/e2e",
+    "e2e:gh-pages": "cross-env DEPLOY_ENV=E2EGH_PAGES jest ./test/e2e",
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup --allow-unclean"

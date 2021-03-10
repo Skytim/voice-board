@@ -58,4 +58,4 @@ jobs:
           echo 🤘 deploy gh-pages complete.
       - name: Run E2E tests 🧪
         run: |
-          npm run e2e
+          npm run e2e:gh-pages

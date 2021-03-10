@@ -1,6 +1,6 @@
 describe("VoiceBoard", () => {
   beforeAll(async () => {
-    if (process.env.DEPLOY_ENV === "GH_PAGES") {
+    if (process.env.DEPLOY_ENV === "E2EGH_PAGES") {
       await page.goto("https://skytim.github.io/voice-board/");
     } else {
       await page.goto("http://localhost:3000/");

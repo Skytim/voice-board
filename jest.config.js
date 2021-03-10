@@ -1,5 +1,5 @@
 module.exports =
-  process.env.DEPLOY_ENV === "E2E"
+  process.env.DEPLOY_ENV === "E2E"|| process.env.DEPLOY_ENV === "E2EGH_PAGES"
     ? { preset: "jest-puppeteer" }
     : {
         moduleNameMapper: {
