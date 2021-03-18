@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002Fvoice-board\u002F_nuxt\u002Fstatic\u002F1616095705",layout:"default",error:b,state:{video:{orderType:a,lengthFilter:a,videos:[],status:a}},serverRendered:true,routePath:"\u002F",config:{app:{basePath:"\u002Fvoice-board\u002F",assetsPath:"\u002Fvoice-board\u002F_nuxt\u002F",cdnURL:b}}}}(1,null));
