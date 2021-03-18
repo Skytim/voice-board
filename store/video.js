@@ -50,11 +50,11 @@ export const actions = {
   async getVideos(context) {
     this.$axios
       .get(
-        "https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz"
+        "https://6053a73245e4b300172922a9.mockapi.io/video"
       )
       .then(response => {
-        if (response.data.status) {
-          context.commit("setVideos", response.data.data);
+        if (response.data[0].status) {
+          context.commit("setVideos", response.data[0].data);
         } else {
           context.commit("netWorkIssue");
         }
